@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Gestión de Proyectos{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="{% static 'images/logo.png' %}" alt="Logo Gestión de Proyectos">
+            </div>
+            <nav class="navigation">
+                <a href="{% url 'home' %}">Inicio</a>
+                <a href="{% url 'about' %}">Quiénes Somos</a>
+                <a href="{% url 'services' %}">Servicios</a>
+                <a href="{% url 'contact' %}">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Gestión de Proyectos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

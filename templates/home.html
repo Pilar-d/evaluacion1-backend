@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Inicio - Gestión de Proyectos{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Empresa de Venta de Maderas del Sur S.A.</h1>
+        <p>“Maderas del Sur S.A., experiencia, tradición y compromiso con el cliente.”</p>
+        <a href="{% url 'services' %}" class="btn btn-primary">Nuestros Servicios</a>
+    </div>
+</section>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-C8XbJjR7pD5xX5P6EflxqIYwrmF0ZRo+E9j5n6eQfA0Dp+1K5Y7vD6eR+WZR+zVtrEJlQHnEN8vxM0p+6rVY0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<section class="features">
+    <div class="container">
+        <h2>Nuestros Principales Servicios</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <h3>Venta de Maderas Dimensionadas</h3>
+                <p>Ofrecemos maderas cortadas y tratadas en distintas medidas, ideales para proyectos de construcción, carpintería y decoración, garantizando resistencia y durabilidad.</p>
+            </div>
+            <div class="feature">
+                <h3>Asesoría Técnica en Proyectos</h3>
+                <p>Nuestro equipo de expertos orienta a clientes y empresas en la elección de maderas adecuadas según el tipo de obra, optimizando costos y calidad.</p>
+            </div>
+            <div class="feature">
+                <h3>Despacho y Distribución</h3>
+                <p>Contamos con un servicio de entrega rápida y segura en toda la región, asegurando que tus materiales lleguen a tiempo y en óptimas condiciones.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

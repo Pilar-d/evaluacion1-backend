@@ -1,13 +1,27 @@
-from django.shortcuts import render
-
-# Create your views here.
-# from django.shortcuts import render <-- esta libreria no la usamos por ahora
 from rest_framework import viewsets
-from .serializer import ProgrammerSerializer
-from .models import programmer
-# Create your views here.
-class ProgrammerViewSet(viewsets.ModelViewSet):
-    # acá creamos una consulta o QUERY a nuestra tabla, trayendo todos los campos como un objeto.
-    queryset = programmer.objects.all()
-    # Agregamos la clase ProgrammerSerializer que ya tiene el modelo serializado para mostrar
-    serializer_class = ProgrammerSerializer
+from .models import TipoMadera, Cliente, Conductor, Camion, Carga
+from .serializer import TipoMaderaSerializer, ClienteSerializer, ConductorSerializer, CamionSerializer, CargaSerializer
+
+# ViewSets para cada modelo
+class TipoMaderaViewSet(viewsets.ModelViewSet):
+    queryset = TipoMadera.objects.all()
+    serializer_class = TipoMaderaSerializer
+
+class ClienteViewSet(viewsets.ModelViewSet):
+    queryset = Cliente.objects.all()
+    serializer_class = ClienteSerializer
+
+class ConductorViewSet(viewsets.ModelViewSet):
+    queryset = Conductor.objects.all()
+    serializer_class = ConductorSerializer
+
+class CamionViewSet(viewsets.ModelViewSet):
+    queryset = Camion.objects.all()
+    serializer_class = CamionSerializer
+
+class CargaViewSet(viewsets.ModelViewSet):
+    queryset = Carga.objects.all()
+    serializer_class = CargaSerializer
+
+
+    

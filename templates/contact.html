@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contacto - Gestión de Proyectos{% endblock %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+{% block content %}
+<section class="contact">
+    <div class="container">
+        <h1>Contacto</h1>
+        <p>¿Tienes preguntas? Estamos aquí para ayudarte. Contáctanos y te responderemos lo antes posible.</p>
+        
+        <div class="contact-methods">
+            <div class="contact-method">
+                <i>📧</i>
+                <h3>Email</h3>
+                <p>info@gestionproyectos.com</p>
+                <small>Respuesta en 24h</small>
+            </div>
+            <div class="contact-method">
+                <i>📞</i>
+                <h3>Teléfono</h3>
+                <p>+34 123 456 789</p>
+                <small>Lun-Vie, 9:00-18:00</small>
+            </div>
+            <div class="contact-method">
+                <i>💬</i>
+                <h3>Chat en vivo</h3>
+                <p>Disponible</p>
+                <small>En horario laboral</small>
+            </div>
+        </div>
+        <hr>
+        <div class="contact-content">
+            <div class="contact-info">
+                <br>
+                <h2>Información de Contacto</h2>
+                <p><strong>Dirección:</strong> Calle Principal 123, Ciudad, 28001 Madrid</p>
+                <p><strong>Teléfono:</strong> +34 123 456 789</p>
+                <p><strong>Email:</strong> info@gestionproyectos.com</p>
+                <p><strong>Horario:</strong> Lunes a Viernes, 9:00 - 18:00</p>
+                
+                <div class="social-links" style="margin-top: 2rem;">
+                    <h3>Síguenos en redes sociales</h3>
+                    <div style="display: flex; gap: 15px; margin-top: 10px;">
+                        <a href="#" style="font-size: 1.5rem; color: var(--primary-color);">📱</a>
+                        <a href="#" style="font-size: 1.5rem; color: var(--primary-color);">💻</a>
+                        <a href="#" style="font-size: 1.5rem; color: var(--primary-color);">📘</a>
+                        <a href="#" style="font-size: 1.5rem; color: var(--primary-color);">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <br>
+                <h2>Envíanos un mensaje</h2>
+                <div class="form-success" id="formSuccess">
+                    ¡Gracias por tu mensaje! Te contactaremos en breve.
+                </div>
+                <div class="form-error" id="formError">
+                    Ha ocurrido un error al enviar el mensaje. Por favor, inténtalo de nuevo.
+                </div>
+                
+                <form id="contactForm" method="post">
+                    {% csrf_token %}
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nombre completo *</label>
+                            <input type="text" id="name" name="name" required placeholder="Tu nombre completo">
+                            <div class="form-hint">Cómo te llamas</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Empresa</label>
+                            <input type="text" id="company" name="company" placeholder="Nombre de tu empresa">
+                            <div class="form-hint">Opcional</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu.email@ejemplo.com">
+                            <div class="form-hint">Para responderte</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+34 000 000 000">
+                            <div class="form-hint">Opcional</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Asunto *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Selecciona un asunto</option>
+                            <option value="soporte">Soporte técnico</option>
+                            <option value="ventas">Información de ventas</option>
+                            <option value="colaboracion">Propuesta de colaboración</option>
+                            <option value="otros">Otro asunto</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje *</label>
+                        <textarea id="message" name="message" rows="5" required 
+                                  placeholder="Describe tu consulta o propuesta en detalle..."></textarea>
+                        <div class="form-hint">Mínimo 20 caracteres</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="attachment">Adjuntar archivo</label>
+                        <input type="file" id="attachment" name="attachment">
+                        <div class="form-hint">Formatos: PDF, DOC, DOCX (Máx. 5MB)</div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter" checked>
+                        <label for="newsletter">Deseo recibir novedades y ofertas por email</label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">He leído y acepto la <a href="#" style="color: var(--accent-color);">política de privacidad</a> *</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="submitButton">
+                        Enviar mensaje
+                        <span class="loading" id="loadingIndicator"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('formSuccess');
+        const errorMessage = document.getElementById('formError');
+        const submitButton = document.getElementById('submitButton');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        
+        // Validación en tiempo real
+        const inputs = contactForm.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                validateField(this);
+            });
+        });
+        
+        // Envío del formulario
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validar todos los campos
+            let isValid = true;
+            inputs.forEach(input => {
+                if (!validateField(input)) {
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) {
+                errorMessage.textContent = 'Por favor, completa todos los campos requeridos correctamente.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            // Simular envío (en un caso real, aquí harías una petición AJAX)
+            submitButton.disabled = true;
+            loadingIndicator.style.display = 'inline-block';
+            
+            setTimeout(() => {
+                loadingIndicator.style.display = 'none';
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                contactForm.reset();
+                submitButton.disabled = false;
+                
+                // Ocultar mensaje después de 5 segundos
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }, 2000);
+        });
+        
+        function validateField(field) {
+            if (field.hasAttribute('required') && !field.value.trim()) {
+                field.style.borderColor = '#E74C3C';
+                return false;
+            }
+            
+            if (field.type === 'email' && field.value) {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(field.value)) {
+                    field.style.borderColor = '#E74C3C';
+                    return false;
+                }
+            }
+            
+            if (field.id === 'message' && field.value.length < 20) {
+                field.style.borderColor = '#E74C3C';
+                return false;
+            }
+            
+            field.style.borderColor = '#ddd';
+            return true;
+        }
+    });
+</script>
+{% endblock %}

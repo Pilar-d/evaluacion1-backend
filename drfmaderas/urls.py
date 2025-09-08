@@ -1,5 +1,5 @@
 """
-URL configuration for drfmaderas project.
+URL configuration for drf project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -14,9 +14,26 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+from django.urls import path
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls'))
+    path('api/', include('api.urls')),
+    
+    # URLs para las páginas HTML
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('quienes-somos/', TemplateView.as_view(template_name='about.html'), name='about'),
+    path('servicios/', TemplateView.as_view(template_name='services.html'), name='services'),
+    path('contacto/', TemplateView.as_view(template_name='contact.html'), name='contact'),
 ]
+
+# Servir archivos estáticos en modo desarrollo
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Quiénes Somos - Gestión de Proyectos{% endblock %}
+
+{% block content %}
+<section class="about">
+    <div class="container">
+        <h1>Quiénes Somos</h1>
+        <div class="about-content">
+            <div class="about-text">
+                <h1>Maderas del Sur S.A.</h1>
+                <p>
+                    En Maderas del Sur S.A. nos especializamos en la comercialización de maderas de alta calidad para construcción, carpintería y proyectos industriales. Con más de 30 años de experiencia en el rubro, hemos consolidado nuestra presencia en el sur de Chile ofreciendo productos confiables, sustentables y con un servicio cercano a nuestros clientes.
+                    Nuestro compromiso es entregar soluciones eficientes en madera, respaldadas por un equipo experto y una gestión responsable con el medio ambiente.
+                </p>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="about-image">
+                <img src="{% static 'images/about-team.jpg' %}" alt="Nuestro equipo">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

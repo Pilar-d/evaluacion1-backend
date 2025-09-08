@@ -1,7 +1,27 @@
 from rest_framework import serializers
-from .models import programmer
-class ProgrammerSerializer(serializers.ModelSerializer):
+from .models import TipoMadera, Cliente, Conductor, Camion, Carga
+
+class TipoMaderaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = programmer
-        # fields = ('fullname','languaje','is_active’) acá podemos traer cualquier atributo del modelo o campo
+        model = TipoMadera
+        fields = '__all__'
+
+class ClienteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cliente
+        fields = '__all__'
+
+class ConductorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Conductor
+        fields = '__all__'
+
+class CamionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Camion
+        fields = '__all__'
+
+class CargaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Carga
         fields = '__all__'
