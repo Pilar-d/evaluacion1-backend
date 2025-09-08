@@ -25,15 +25,13 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-    
-    # URLs para las páginas HTML
+   
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('quienes-somos/', TemplateView.as_view(template_name='about.html'), name='about'),
     path('servicios/', TemplateView.as_view(template_name='services.html'), name='services'),
     path('contacto/', TemplateView.as_view(template_name='contact.html'), name='contact'),
 ]
 
-# Servir archivos estáticos en modo desarrollo
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

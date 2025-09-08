@@ -1,15 +1,15 @@
-/* Variables de colores basados en la paleta proporcionada */
+
 :root {
-    --primary-color: #8f694d;     /* Marrón madera oscura */
-    --secondary-color: #dcc4ad;   /* Madera clara / beige */
-    --accent-color: #b0adaa;      /* Tono madera media */
-    --light-color: #F5F0E6;       /* Beige muy claro / fondo suave */
-    --dark-color: #4B2E1E;        /* Marrón muy oscuro */
-    --text-color: #3E2C1C;        /* Texto marrón oscuro */
-    --text-light: #FFFFFF;        /* Texto claro */
+    --primary-color: #8f694d;    
+    --secondary-color: #dcc4ad;   
+    --accent-color: #b0adaa;   
+    --light-color: #F5F0E6;       
+    --dark-color: #4B2E1E;        
+    --text-color: #3E2C1C;        
+    --text-light: #FFFFFF;      
 }
 
-    /* Estilos adicionales para el formulario mejorado */
+    
     .form-row {
         display: flex;
         gap: 15px;
@@ -96,7 +96,6 @@
     }
 
 
-/* Reset y estilos base */
 * {
     margin: 0;
     padding: 0;
@@ -117,7 +116,7 @@ body {
     padding: 0 15px;
 }
 
-/* Header */
+
 .header {
     background-color: var(--primary-color);
     color: var(--text-light);
@@ -150,7 +149,7 @@ body {
     color: var(--secondary-color);
 }
 
-/* Botones */
+
 .btn {
     display: inline-block;
     padding: 0.8rem 1.5rem;
@@ -182,7 +181,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Hero Section */
+
 .hero {
     background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('../images/hero-bg.jpg');
     background-size: cover;
@@ -205,7 +204,7 @@ body {
     margin-right: auto;
 }
 
-/* Features Section */
+
 .features {
     padding: 4rem 0;
     background-color: var(--light-color);
@@ -241,7 +240,7 @@ body {
     margin-bottom: 1rem;
 }
 
-/* About Section */
+
 .about {
     padding: 4rem 0;
 }
@@ -265,7 +264,7 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Services Section */
+
 .services {
     padding: 4rem 0;
 }
@@ -310,7 +309,7 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* Contact Section */
+
 .contact {
     padding: 4rem 0;
 }
@@ -371,7 +370,7 @@ body {
     min-height: 120px;
 }
 
-/* Footer */
+
 .footer {
     background-color: var(--primary-color);
     color: var(--text-light);
@@ -379,7 +378,7 @@ body {
     text-align: center;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
