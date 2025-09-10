@@ -1,4 +1,4 @@
-// Funcionalidad básica para el formulario de contacto
+
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     
@@ -6,14 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Aquí iría la lógica para enviar el formulario
-            // Por ahora, solo mostraremos una alerta
             alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
             contactForm.reset();
         });
     }
     
-    // Efectos de animación para las tarjetas de servicios
     const serviceCards = document.querySelectorAll('.service-card, .feature');
     
     serviceCards.forEach(card => {
@@ -22,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Navegación responsive (podría expandirse)
     const menuToggle = document.createElement('button');
     menuToggle.innerHTML = '☰';
     menuToggle.classList.add('menu-toggle');
@@ -30,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const headerContent = document.querySelector('.header-content');
     const navigation = document.querySelector('.navigation');
     
-    // Solo agregar el toggle menu en dispositivos móviles
+
     if (window.innerWidth <= 768) {
         headerContent.appendChild(menuToggle);
         

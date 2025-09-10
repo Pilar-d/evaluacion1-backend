@@ -183,7 +183,7 @@ body {
 
 
 .hero {
-    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('../images/hero-bg.jpg');
+    background: linear-gradient(rgba(202, 166, 131, 0.8), rgba(158, 119, 86, 0.8));
     background-size: cover;
     background-position: center;
     color: var(--text-light);

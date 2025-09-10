@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 from api import views
-router = routers.DefaultRouter() # este elemento enrutador permite manejar múltiples rutas.
+router = routers.DefaultRouter() 
 
 router = routers.DefaultRouter()
 router.register(r'tipos-madera', views.TipoMaderaViewSet)

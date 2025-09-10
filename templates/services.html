@@ -243,7 +243,7 @@
 {% block content %}
 <section class="services-hero">
     <div class="container">
-        <h1>Soluciones Integrales de Gestión</h1>
+        <h1>Empresa de Venta de Maderas del Sur S.A.</h1>
         <p>Optimiza tus proyectos, tareas y equipos con nuestras herramientas especializadas</p>
         <a href="#services" class="btn btn-primary">Ver Servicios</a>
     </div>
@@ -265,7 +265,7 @@
         </div>
         
         <div class="services-grid">
-            <!-- Panel de Administración -->
+            
             <div class="service-card" data-category="panel-admin">
                 <div class="service-icon">⚙️</div>
                 <h3>Panel de Administración</h3>
@@ -283,7 +283,7 @@
                 </div>
             </div>
             
-            <!-- API REST -->
+            
             <div class="service-card" data-category="api">
                 <div class="service-icon">🔌</div>
                 <h3>API REST</h3>
@@ -312,20 +312,20 @@
 {% block extra_js %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Filtrado de servicios por categoría
+        
         const tabButtons = document.querySelectorAll('.tab-button');
         const serviceCards = document.querySelectorAll('.service-card');
         
         tabButtons.forEach(button => {
             button.addEventListener('click', function() {
-                // Quitar clase active de todos los botones
+               
                 tabButtons.forEach(btn => btn.classList.remove('active'));
-                // Añadir clase active al botón clickeado
+                
                 this.classList.add('active');
                 
                 const category = this.getAttribute('data-category');
                 
-                // Mostrar/ocultar servicios según categoría
+               
                 serviceCards.forEach(card => {
                     if (category === 'all' || card.getAttribute('data-category') === category) {
                         card.style.display = 'block';
@@ -336,7 +336,7 @@
             });
         });
         
-        // Funcionalidad FAQ
+        
         const faqQuestions = document.querySelectorAll('.faq-question');
         
         faqQuestions.forEach(question => {
@@ -344,7 +344,6 @@
                 const faqItem = this.parentElement;
                 faqItem.classList.toggle('faq-active');
                 
-                // Cambiar el signo + por - cuando está activo
                 const sign = this.querySelector('span');
                 sign.textContent = faqItem.classList.contains('faq-active') ? '−' : '+';
             });

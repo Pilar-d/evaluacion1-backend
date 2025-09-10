@@ -16,13 +16,13 @@
             <div class="contact-method">
                 <i>📧</i>
                 <h3>Email</h3>
-                <p>info@gestionproyectos.com</p>
+                <p>info@maderasdelsur.com</p>
                 <small>Respuesta en 24h</small>
             </div>
             <div class="contact-method">
                 <i>📞</i>
                 <h3>Teléfono</h3>
-                <p>+34 123 456 789</p>
+                <p>+569 44 556 66</p>
                 <small>Lun-Vie, 9:00-18:00</small>
             </div>
             <div class="contact-method">
@@ -145,7 +145,7 @@
         const submitButton = document.getElementById('submitButton');
         const loadingIndicator = document.getElementById('loadingIndicator');
         
-        // Validación en tiempo real
+       
         const inputs = contactForm.querySelectorAll('input, textarea, select');
         inputs.forEach(input => {
             input.addEventListener('blur', function() {
@@ -153,11 +153,11 @@
             });
         });
         
-        // Envío del formulario
+        
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Validar todos los campos
+            
             let isValid = true;
             inputs.forEach(input => {
                 if (!validateField(input)) {
@@ -171,7 +171,7 @@
                 return;
             }
             
-            // Simular envío (en un caso real, aquí harías una petición AJAX)
+           
             submitButton.disabled = true;
             loadingIndicator.style.display = 'inline-block';
             
@@ -182,7 +182,7 @@
                 contactForm.reset();
                 submitButton.disabled = false;
                 
-                // Ocultar mensaje después de 5 segundos
+                
                 setTimeout(() => {
                     successMessage.style.display = 'none';
                 }, 5000);
