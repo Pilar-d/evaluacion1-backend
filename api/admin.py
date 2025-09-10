@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import TipoMadera, Cliente, Conductor, Camion, Carga
 
+# Registro de modelos en el panel de administración
 models_to_register = [TipoMadera, Cliente, Conductor, Camion, Carga]
 
 for model in models_to_register:
